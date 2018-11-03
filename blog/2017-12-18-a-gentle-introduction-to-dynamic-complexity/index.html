@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zn-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Shreyas">
+  <meta name="description" content="$$ \newcommand{\ang}[1]{\langle #1\rangle} \newcommand{\brackets}[1]{\left( #1\right)} $$
+This post is an introductory post and is Part 1 of an n-Part series on Dynamic Complexity, where n is unknown.
+Since October this year, I have been working with Prof. Samir Datta on the topic of Dynamic Complexity. We are working on several problems in this subject, which I would like to write about sometime in the near future. So I guess it is only fair that I give an overview of the subject. It would be useful but not necessary to have a grasp of basic logic, circuit complexity and descriptive complexity. I&rsquo;ll keep this as intuitive and simple as I can. At the same time I will also loosely state the relevant formal definitions. The presentation is geared towards an audience of CS undergraduates. Others who wish to get a quick introduction might also find this useful. I&rsquo;ll revisit the basic definitions in logic and descriptive complexity for the sake of clarity. The presentation is not suitable for someone who seeks a rigorous formal introduction. Such introductions have been written in several papers and dissertations, in particular Thomas Zeume&rsquo;s thesis on Small Dynamic Complexity Classes. I find it pointless to rehash them.">
+  
+  <meta property="og:title" content="A Gentle Introduction to Dynamic Complexity" />
+<meta property="og:description" content="$$ \newcommand{\ang}[1]{\langle #1\rangle} \newcommand{\brackets}[1]{\left( #1\right)} $$
+This post is an introductory post and is Part 1 of an n-Part series on Dynamic Complexity, where n is unknown.
+Since October this year, I have been working with Prof. Samir Datta on the topic of Dynamic Complexity. We are working on several problems in this subject, which I would like to write about sometime in the near future. So I guess it is only fair that I give an overview of the subject. It would be useful but not necessary to have a grasp of basic logic, circuit complexity and descriptive complexity. I&rsquo;ll keep this as intuitive and simple as I can. At the same time I will also loosely state the relevant formal definitions. The presentation is geared towards an audience of CS undergraduates. Others who wish to get a quick introduction might also find this useful. I&rsquo;ll revisit the basic definitions in logic and descriptive complexity for the sake of clarity. The presentation is not suitable for someone who seeks a rigorous formal introduction. Such introductions have been written in several papers and dissertations, in particular Thomas Zeume&rsquo;s thesis on Small Dynamic Complexity Classes. I find it pointless to rehash them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/" /><meta property="article:published_time" content="2017-12-18T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-12-18T00:00:00&#43;00:00"/>
+
+
+  <title>
+  
+       A Gentle Introduction to Dynamic Complexity | Shreyas 
+  
+  </title>
+
+  <link rel="canonical" href="https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/">
+
+  
+  
+
+  
+  <link href="https://Shreyas94.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://Shreyas94.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://Shreyas94.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://Shreyas94.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://Shreyas94.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://Shreyas94.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://Shreyas94.github.io/img/profile.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://Shreyas94.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://Shreyas94.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://Shreyas94.github.io">
+          
+        <img class="avatar" src="https://Shreyas94.github.io" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Shreyas</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://Shreyas94.github.io">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas94.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas94.github.io/about-me/" >About  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas94.github.io/contact/" >Contact  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://Shreyas94.github.io/img/header-slides/mine_20170810_191443.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://Shreyas94.github.io/img/header-slides//mine_20170810_193018.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://Shreyas94.github.io">
+          
+            <img class="pull-right avatar avatar-md" src="https://Shreyas94.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://Shreyas94.github.io">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Shreyas</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/Shreyas94" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+
+            
+    
+            
+    
+        
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="container pr-5">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+    
+  </ul>
+
+  <div class="px-4 post-heading">A Gentle Introduction to Dynamic Complexity</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Dec 18, 2017</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>18 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>$$
+\newcommand{\ang}[1]{\langle #1\rangle}
+\newcommand{\brackets}[1]{\left( #1\right)}
+$$</p>
+
+<p>This post is an introductory post and is <strong>Part 1</strong> of an <strong>n-Part series</strong> on Dynamic Complexity, where <strong>n</strong> is unknown.</p>
+
+<p>Since October this year, I have been working  with Prof. Samir Datta on the topic of Dynamic Complexity. We are working on several problems in this subject, which I would like to write about sometime in the near future. So I guess it is only fair that I give an overview of the subject. It would be useful but not necessary to have a grasp of basic logic, circuit complexity and descriptive complexity. I&rsquo;ll keep this as intuitive and simple as I can. At the same time I will also loosely state the relevant formal definitions. The presentation is geared towards an audience of CS undergraduates. Others who wish to get a quick introduction might also find this useful. I&rsquo;ll revisit the basic definitions in logic and descriptive complexity for the sake of clarity. The presentation is not suitable for someone who seeks a rigorous formal introduction. Such introductions have been written in several papers and dissertations, in particular <a href="https://eldorado.tu-dortmund.de/bitstream/2003/34163/1/Dissertation.pdf">Thomas Zeume&rsquo;s thesis on Small Dynamic Complexity Classes</a>. I find it pointless to rehash them. In this post I do not discuss interesting results in this field in any detail. I simply set up the framework.</p>
+
+<h2 id="a-haphazard-introduction-to-logic">A haphazard introduction to logic</h2>
+
+<p>In logic, we separate the syntax of our formulae from its semantics. The syntax is described by a vocabulary. A vocabulary essentially consists of a bunch of constant symbols, function symbols and relation symbols with their arities specified. If we take a vocabulary with only relation symbols, it is analogous to the schema of a relational database (such as an SQL database). This analogy will prove useful as an intuition. It&rsquo;s presence in this article is not coincidental.</p>
+
+<p>Anyway, a $\sigma$-structure, over the vocabulary $\sigma$ has a domain $D$ which could be any set and assigns constants, relations and functions over $D$, of matching arity, to the corresponding symbols in $\sigma$. Basically, a $\sigma$ structure assigns meaning (&lsquo;semantics&rsquo;) to the symbols in the vocabulary in the &lsquo;universe of discourse&rsquo; of elements in $D$. We also call $D$, the domain of the $\sigma$-structure. Naturally one can define several $\sigma$ structures over $\sigma$, just as there can be several databases over the same schema, which differ in the data they hold and the data elements they contain.</p>
+
+<p><strong>Note</strong>: The word &lsquo;interpretation&rsquo; has a special meaning in logic and consists of a sigma structure and a tuple of elements from its domain, which corresponds to an assignment of values variables. I do not use this term only once in this post.</p>
+
+<p>For further reading, do refer to the excellent lecture notes and books available online on the subjects of logic and model theory.</p>
+
+<h2 id="a-brief-introduction-to-descriptive-complexity">A brief introduction to Descriptive Complexity</h2>
+
+<p>As you might recall, in the familiar Turing machine model, problems are treated as functions mapping strings over some alphabet to <code>Yes</code> or <code>No</code>. The decision procedure is given by the Turing machine&rsquo;s transition function which determines how the Turing machine evaluates the strings. Descriptive complexity recasts this theory in the language of logic. Vocabularies take the place of the alphabet. The strings correspond to structures of the chosen vocabulary. Problems correspond to subsets of these structures. The question changes to whether one can express these problems as formulae over the vocabulary. Complexity classes are defined according to the type of formulas needed to describe problems.</p>
+
+<p>Was that a bit of an overload? (If it wasn&rsquo;t, then you can safely skip to the next section). A couple of examples should simplify things. Let&rsquo;s start with graphs, one of the most ubiquitous discrete structures in computer science. Representing graphs in this framework is fairly simple. Consider the vocabulary $\sigma = {E}$, which consists of a single binary relation $E$. This is the relation over which we are going to define graphs. Suppose $G = (V,E)$ is a graph, where $V$ is some set of vertices and $E$ is some set of edges between them, it is easy to see that this graph can be represented by the $\sigma$ structure whose domain is $V$ and which has the edge relation $E$. Needless to say, undirected graphs can be represented by a symmetric relation. A valid decision problem would be whether or not this graph is connected. Another could be, given two vertices $x$ and $y$, whether the graph contains a path from $x$ to $y$. A solution would correspond to a formula $\phi(x,y)$ with the free variables $x$ and $y$. It holds for an assignment of nodes to $x$ and $y$ say $x=s$ and $y=t$ (i.e. it is true) when $y$ can be reached from $x$ in the graph.</p>
+
+<p>A slightly more complicated example would be represented strings themselves, over some fixed alphabet say $\Sigma = {a_1,&hellip;,a_m}$. Now how does one go about doing this? A string of length $n$ essentially assigns a character from the alphabet to each position from $1$ to $n$. So we can encode strings by choosing a domain ${0,&hellip;,n-1}$ and defining unary relations $R_1,&hellip;,R_m$ one for each alphabet, such that $R_i(x)$ holds if the $i^th$ position of the string contains the alphabet $a_i$. To put it in formal language, a string $S$  of length $n$ over the alphabet $\Sigma$, corresponds to a $\sigma$-structure over the domain ${0,&hellip;,n-1}$ and relations $R_1,&hellip;R_m$ such that  $S\models R_i(x)$ if and only if the $i^{th}$ letter in S is $a_i$. Naturally, for each position $i$, there can be only be one relation $R$ for which  $R(i)$ holds. The goal of solving problems remains the same as it was in the case of graphs.</p>
+
+<p>The complexity classes defined in this framework correspond to how expressive a logic we need to write a formula which gives us the solution. As far back as the 1970s, Fagin showed that the class $NP$ in the Turing machine framework is equivalent to the class $\exists SO$, i.e. problems whose solutions can be expressed in existential second order formulae. When the domain is restricted to ${0,&hellip;,n-1}$ for some $n\in\mathbb{N}$, it is meaninful to define the arithmetic relations $+(x,y,z)$ which holds when $x+y=z$, and $\times(x,y,z)$ which holds when $x\times y = z$. When we assume access to these relations, the class of problems which can be solved using $FO$ formulas corresponds to the class $FO(+,\times)$. In addition we can also define the $BIT$ relation on the domain, such that $BIT(i,j)$ holds if and only if in the binary representation of $i$, bit $j$ is $1$. It is known that $FO(+,\times) = \text{DLOGTIME uniform} AC_0$, where $AC_0$ is the smallest class in the $AC$ family of circuit complexity classes. You can read more about all this in <a href="http://www.springer.com/in/book/9780387986005"> Prof. Neil Immerman&rsquo;s textbook</a> on the subject.</p>
+
+<h2 id="dynamic-complexity-the-framework">Dynamic Complexity - The Framework</h2>
+
+<p>We finally come to the subject of this post. Again, I must remind you that this is a gentle introduction with minimal details. For a more detailed read I would recommend <a href="https://eldorado.tu-dortmund.de/bitstream/2003/34163/1/Dissertation.pdf">Thomas Zeume&rsquo;s thesis on Small Dynamic Complexity Classes</a> and <a href="https://example.net">William Hesse&rsquo;s Thesis</a>. In this section, I introduce the dynamic complexity framework and set up the machinery upon which the subject is built.</p>
+
+<p>Dynamic complexity extends the descriptive complexity framework to incremental algorithms. So what&rsquo;s an incremental algorithm? Think of this scenario. You have a relational database for a social network (SQL will do, though it&rsquo;s not the most precise analogy for our framework). This database consists of user accounts and the relation $friendsWith$, If $u_1$ and $u_2$ are users, then $friendsWith(u_1,u_2)$ is assumed to hold whenever $u_1$ and $u_2$ are connected on the social network. Now this is a dynamic social network. People constantly find friends. Old ones may have some issues and unfriend each other and then possibly patch up and become friends again. The latter scenario might seem an infrequent and odd thing. But on a global scale, this would probably be an everyday occurrence. Now, a researcher, who is working to identify groups of friends with similar interests might want to know how many connected clusters of friends share a particular interest . They might want to know if there are large groups of people who all know each other. They might be interested in being able to compute whether two individuals are connected by some chain of friendships. Now, naturally some of these questions can be answered by database queries. But in a dynamically changing social network, is it feasible to compute this information from scratch every time we need it. Would such a solution scale when we need to keep track of this information live over a period of time?</p>
+
+<p>The obvious and correct answer is <strong>no</strong>. This is where incremental algorithms come into the picture. These algorithms maintain answers to questions as the underlying database or any other data structure for that matter undergoes modifications. The goal is to understand the complexity of operations required to maintain queries(solutions to decision problems) over changes to the database. Now as in any theoretical framework, we would like to make these notions precise. We would also like to abstract away unnecessary details so as to tackle the fundamental problem without being weighed down by them. As I probably mentioned already, we would like to use the descriptive complexity framework to build this theory. It would be sufficient to skim through these ideas. Again, for a rigorous treatment I would refer you, the reader, to Chapter 2 of the <a href="https://eldorado.tu-dortmund.de/bitstream/2003/34163/1/Dissertation.pdf">thesis on Small Dynamic Complexity Classes</a>.</p>
+
+<p>In essence, in this framework, we assume that the input is given to us as a relational $\sigma$ structure $\mathcal{I}$ called the input structure, with a domain $D$ over a fixed vocabulary $\sigma$. We consider changes introduced to the input structure by elementary updates. A query $Q(x_1,&hellip;,x_k)$ of arity $k$, is a function which returns a $k$-ary relation relation over $D$, which consists of $k$ tuples in $D$ for which $Q$ holds. Hereon, the words &lsquo;problem&rsquo; and &lsquo;query&rsquo; are used interchangably. Our goal is to maintain the query $Q$ over these elementary updates to the input structure. The choice of elementary updates is flexible. For the sake of simplicity, we restrict elementary updates to the following:</p>
+
+<ul>
+<li>The insertion of a tuple into some relation of $\mathcal{I}$</li>
+<li>The deletion of a tuple from some relation in $\mathcal{I}$</li>
+</ul>
+
+<p>Originally these were the only updates considered. Over time, the community has extended known results to more general types of elementary updates to the input structure, including changes definable by first order formulae (We&rsquo;ll get to what that means in the next paragraph). For this post, we will stick to the simple ones mentioned above. Even these elementary operations can make things surprisingly hard and other possible elementary operations are built up from them. Maintaining the query implies that we define a program (so to speak) which will update the results of the query after each elementary update operation. Typically these changes and change sequences are denoted by small greek alphabets such as $\alpha$. <em>(Did you notice that something&rsquo;s amiss about these allowed changes? I&rsquo;ll discuss that in the last section)</em></p>
+
+<p>To help maintain the query, we are allowed to maintain an auxiliary structure $\mathcal{A}$ over the same domain $D$. These are additional relations and functions (note, no constants) over the domain $D$, that we maintain as elementary updates are made. Together, with the input structure, we get the state of the program denoted by $S$ and defined as below.</p>
+
+<p>$$
+\begin{aligned}
+S = \ang{D,\mathcal{I},\mathcal{A}}
+\end{aligned}
+$$</p>
+
+<p>One of the relations in $\mathcal{A}$ is the relation $Q(S)$ corresponding to the relation which the query $Q$ maps $\mathcal{I}$ to. A so called update-program $P$ is said to maintain this query $Q$. $P$ consists of a set of update formulas $\phi^{\delta,R_{in}}_{R_{aux}}(\vec{x},\vec{y})$ for each change operation $\delta$ applied to input relation $R_in$, by adding or deleting the tuple $\vec{x}$, and auxiliary relation $R_{aux}$, which is going to get updated according to this formula. The new auxiliary relation is defined as</p>
+
+<p>$$
+\begin{aligned}
+R_{aux}(\vec{y})\equiv \phi^{\delta,R_{in}}_{R_{aux}}(\vec{x},\vec{y})
+\end{aligned}
+$$</p>
+
+<p>So basically the update formula re-defines the relation $R_{aux}$ according to the change operation and the tuple $\vec{x}$ which is used in it. You might immediately ask me what the point of this so-called incremental algorithm is. After all, we seem to be reconstructing the auxiliary relation from scratch. The difference is, we have access to the current input and auxiliary relations as you shall see in the next post. So this means we can keep any subset of the existing tuples we like and our formula only needs to specify conditions for adding or deleting some tuples from $R_{aux}$. The purpose of introducing a separate update formula instead of doing an imperative programming style reassignment is three-fold. We need to introduce the change tuple as a free variable and as mathematically minded people might attest, imperative style assignment statements like $i=i+1$ make little mathematical sense in this context and only introduce notational ambiguity. Further, these update formulas are different for each input relation and each change operation on them. At this stage it is probably time to answer the question I asked in one of the preceding paragraphs. In a loose sense, first order definable changes are changes which can be defined by first order formulas, just as update programs redefine auxiliary relations. We will be looking at them in more detail in one of the subsequent posts.</p>
+
+<p>In addition to update formulas, $P$ is equipped with a set of update terms $\psi^{\delta,R_{in}}_{f_{aux}}(\vec{x},\vec{y})$ to update auxiliary function. The rule for updating functions is quite like updating formulas though now we are working with first order terms. That is, when tuple $\vec{x}$ is added/deleted from $R_{in}$ according to the change operation $\delta$</p>
+
+<p>$$
+\begin{aligned}
+  f(\vec{y}) = \psi^{\delta,R_{in}}_{f_{aux}}(\vec{x},\vec{y})
+\end{aligned}
+$$</p>
+
+<p>But there is a catch now. For every update operation, we have access to the update tuple. But we appear to be left high and dry as far as accessing the input relations goes, while update formulas seem to have this luxury. And this is a concern since our auxiliary functions serve the purpose of storing some information corresponding to the current version/state of the input structure. So, in addition to the usual inductive definition of first order terms, we add the term $ITE$ to help us use the full power of first order formulas on the current input relations and auxiliary relations to update our auxiliary functions.</p>
+
+<blockquote>
+<p><strong>Definition (Update Terms)</strong> Update terms are defined inductively as follows</p>
+
+<ul>
+<li>Every constant and variable is an update term.</li>
+<li>If $t_1,&hellip;t_r$ are update terms, and $f$ is a function of arity $r$, then $f(t_1,&hellip;,t_r)$ is an update term.</li>
+<li>If $\phi$ is a first order formula and $t_1$ and $t_2$ are update terms, then so is $ITE(\phi,t_1,t_2)$</li>
+</ul>
+</blockquote>
+
+<p>The semantics of the $ITE$ term are intuitively like the <code>if then else</code> conditional programming construct. To put it more formally, under some interpretation $I = (S,\beta)$ where $S$ is the current program state and $\beta$ an assignment of elements in $D$ to the free variables of $\phi$, $ITE(\phi,t_1,t_2)$ can be read as</p>
+
+<p>$$
+\text{if } I\models \phi\text{ then } t_1\text{ else }t_2
+$$</p>
+
+<p>That&rsquo;s quite a bit about update formulas and update programs. Now comes a slightly more ambiguous part. And don&rsquo;t worry we are not introducing any mathematical ambiguity. It&rsquo;s just that in the literature, different authors have adopted different definitions and have therefore obtained slightly different results. So what am I talking about? The initialisation of the structures. Now why can&rsquo;t we just start off with some arbitrary input? The thing is we can. But this also means we need to set the auxiliary relations according to the input relations. And that costs computational resources. So we define an initialisation program $INIT$ which sets the auxiliary relations according to the input relations. Ok wait, so why do we care about the case where input relations are empty? Well that means we can start from scratch on the auxiliary relations. Furthermore, in this case, there arises the interesting question of whether we can take advantage of giving a head-start to the auxiliary structure. The results so far indicate that indeed this is so for problems such as maximum matching. This leads to variants in the complexity classes we eventually define. But I digress too far, the point is, initialisation of auxiliary relations is important. And the set of formulas and functions which do this, one for each auxiliary relation in $\mathcal{A}$, form the program $INIT$.</p>
+
+<p>A dynamic program consists of the underlying update program $P$, the initialisation program $I$ and the query $Q$ and is usually denoted by the 3-tuple $\ang{P,INIT,Q}$. So typically, we speak of dynamic programs maintaining queries. It is also not inaccurate to speak of update programs maintaining queries, in which case the type of initialisation applied to auxiliary relations must be specified. Of course, we drop this additional specification, when it is obvious from the context.</p>
+
+<h2 id="dynamic-complexity-classes">Dynamic Complexity Classes</h2>
+
+<p>I will keep this brief and simple. While the choice of domain is arbitrary, without loss of generality and often with convenience we choose the domain to be ${0,&hellip;,n-1}$ for some natural number $n$. Let us denote this by $[n]$ ( <em>a slightly unconventional notation in CS theory</em>). Then it is possible to define the relations $+$ and $+\times$ and $BIT$ which we described in the section on <a href="#A-Brief-Introduction-to-Descriptive-Complexity">descriptive complexity</a>. We henceforth refer to the descriptive complexity classes as static classes, and the framework as the static framework. In this section I will restrict myself to defining the three basic classes of this framework. There are several others we will define along the series. I will also discuss variations in these definitions&gt;</p>
+
+<blockquote>
+<p><strong>Definitions (Dynamic Complexity Classes)</strong></p>
+
+<ul>
+<li><strong>DynFO</strong>: The class of queries maintainable by an update program consisting of first order formulae using a purely relational auxiliary structure initialised to empty relations</li>
+<li><strong>DynPROP</strong>: The class of queries maintainable by an update program consisting of quantifier free first order formulae using a purely relational auxiliary structure initialised to empty relations</li>
+<li><strong>DynQF</strong>: The class of queries maintainable by an update program consisting of first order formulae using an auxiliary structure which may contain auxiliary functions along with relations.</li>
+<li><strong>DynC</strong>$(+,\times)$ For each class DynC defined above, this is the class with arithmetic relations initialised. With these relations it is also possible to construct the $BIT$ relation.</li>
+</ul>
+</blockquote>
+
+<p>The non-uniform variants of these classes allow arbitrarily initialised auxiliary structures. Other variants allow initialisations whose computation is restricted to operations of class $C$ for class $DynC$ where $C$ is any static complexity class. These definitions can be generalised to any class $C$. Now wait a second. Did I just say that I can extend these definitions to any class? Indeed this is possible since static classes in other models of computation have their descriptive complexity counterparts. For example the circuit class $TC_0$ which allows unbounded fanin, constant depth threshold circuits, is equivalent to the descriptive class $FO(COUNT)$ which includes counting quantifiers of the form $\exists i$ which ask whether $i$ elements satisfying some formula exist.</p>
+
+<p>I will stop these definitions here. I will introduce more such complexity classes in subsequent posts. As you might observe, dynamic complexity classes tend to be more powerful than their static counterparts. If you wonder why, then here&rsquo;s the intuition behind it: As more complex update operations are permitted on the input structure, the complexity of the update program also increases. A static program is effectively the most complex update operation possible. Starting with an input structure, we update it to its final state in one step. Naturally, the static version of the problem is equivalent to the update program for this problem. Exploiting this intuition has however proven to be non-trivial, when it comes to proving lower bounds. In fact, one must start with a definition of update programs for this scenario.</p>
+
+<h2 id="a-historical-perspective">A historical perspective</h2>
+
+<p>Dynamic complexity originally arose from the view maintenance problem in databases. I guess that should finally explain why I have been using databases as examples. Sushant Patnaik and Neil Immerman introduced it as a complexity theory for databases.</p>
+
+<p>This is where I address the question I hinted at after the discussion on elementary updates. In this framework of Patnaik and Immerman, the underlying domain never changes as you probably noticed. For a framework inspired by databases, this seems like a limitation. After all in SQL, it is possible to change the domain. Indeed, a framework that permits updates to the domain was introduced by Dong, Su and Topor, called First Order Incremental Evaluation Systems (FOIES). However, keeping the domain fixed is not a limitation as such, since the results shown in this framework can be extended to the scenario where changes to the domain are allowed. Further, from a complexity theoretic point of view, fixing the domain keeps the input size fixed. Now this might not seem relevant from the point of view of descriptive complexity. But as we have just seen, these classes have equivalent circuit formulations when we leave the domain fixed and it is advantageous to switch from one to the other for proofs.</p>
+
+<p>Anyway, back to our story. Patnaik and Immerman showed some initial results on reachability in undirected graphs and directed acyclic graphs in $DynFO$. William Hesse improved many of these results. The classes $DynPROP$ and $DynQF$ were discovered to understand the limitations of quantifier free formulas and the power of limited quantification. However one problem remained out of reach of first order update programs for 20 years. This was the question of whether reachability in general directed graphs lay in $DynFO$. This question was finally answered in the positive in 2015 by my supervisor Prof. Samir Datta and his colleagues. It opened up the possibility of applying this framework to path queries for graph databases thus coming back a full circle.</p>
+
+<p>I hope to discuss this very interesting result in my next blog post</p>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>I have not presented any new result here. All these definitions and results are the work of numerous theorists over the past 20 years. In particular, I have learnt a lot from Samir Datta, Thomas Zeume, Nils Vortmeier and Anish Mukherjee.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>Hesse, W.M., 2003. Dynamic computational complexity.</li>
+<li>Zeume, T., 2015. Small Dynamic Complexity Classes (Doctoral dissertation, Technical University Dortmund, Germany).</li>
+<li>Schwentick, T., Vortmeier, N. and Zeume, T., 2017. Dynamic complexity under definable changes. arXiv preprint arXiv:1701.02494.</li>
+<li>Datta, S., Hesse, W. and Kulkarni, R., 2014, July. Dynamic complexity of directed reachability and other problems. In International Colloquium on Automata, Languages, and Programming (pp. 356-367). Springer, Berlin, Heidelberg.</li>
+<li>Dong G, Su J, Topor R. Nonrecursive incremental evaluation of datalog queries. Annals of Mathematics and Artificial Intelligence. 1995 Jun 1;14(2):187-223.</li>
+<li>Datta, S., Kulkarni, R., Mukherjee, A., Schwentick, T. and Zeume, T., 2015, July. Reachability is in DynFO. In International Colloquium on Automata, Languages, and Programming (pp. 159-170). Springer, Berlin, Heidelberg.</li>
+</ul>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>Welcome to the Blog</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/Shreyas94 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2018 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://Shreyas94.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://Shreyas94.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://Shreyas94.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>

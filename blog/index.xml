@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Shreyas</title>
+    <link>https://Shreyas94.github.io/blog/</link>
+    <description>Recent content in Blog on Shreyas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zn-Hans</language>
+    <lastBuildDate>Sat, 03 Nov 2018 03:26:53 +0530</lastBuildDate>
+    
+	<atom:link href="https://Shreyas94.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Gentle Introduction to Dynamic Complexity</title>
+      <link>https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</guid>
+      <description>$$ \newcommand{\ang}[1]{\langle #1\rangle} \newcommand{\brackets}[1]{\left( #1\right)} $$
+This post is an introductory post and is Part 1 of an n-Part series on Dynamic Complexity, where n is unknown.
+Since October this year, I have been working with Prof. Samir Datta on the topic of Dynamic Complexity. We are working on several problems in this subject, which I would like to write about sometime in the near future. So I guess it is only fair that I give an overview of the subject. It would be useful but not necessary to have a grasp of basic logic, circuit complexity and descriptive complexity. I&amp;rsquo;ll keep this as intuitive and simple as I can. At the same time I will also loosely state the relevant formal definitions. The presentation is geared towards an audience of CS undergraduates. Others who wish to get a quick introduction might also find this useful. I&amp;rsquo;ll revisit the basic definitions in logic and descriptive complexity for the sake of clarity. The presentation is not suitable for someone who seeks a rigorous formal introduction. Such introductions have been written in several papers and dissertations, in particular Thomas Zeume&amp;rsquo;s thesis on Small Dynamic Complexity Classes. I find it pointless to rehash them.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to the Blog</title>
+      <link>https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/</guid>
+      <description>I welcome you to this blog. This is going to be an extremely short post. I have been trying to start a blog for a while and have finally found the time to set it up. Through this blog I hope to share interesting ideas, algorithms, problems and proofs that I come across in CS theory. I am also using this blog as an exercise to constantly improve my ability to communicate complex ideas lucidly. I hope you enjoy it</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,17 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://Shreyas94.github.io/contact/</loc>
+    <lastmod>2018-11-04T01:37:32+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/blog/</loc>
+    <lastmod>2018-11-03T03:26:53+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/about-me/</loc>
+    <lastmod>2018-11-03T03:10:14+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</loc>
+    <lastmod>2017-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/</loc>
+    <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://Shreyas94.github.io/series/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://Shreyas94.github.io/</loc>
+    <lastmod>2018-11-04T01:37:32+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Shreyas94.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
