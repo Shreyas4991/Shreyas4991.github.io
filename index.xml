@@ -6,10 +6,21 @@
     <description>Recent content on Shreyas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-Hans</language>
-    <lastBuildDate>Sun, 04 Nov 2018 01:37:32 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 04 Nov 2018 04:23:38 +0530</lastBuildDate>
     
 	<atom:link href="https://Shreyas94.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Markdown for Math - Part 1</title>
+      <link>https://Shreyas94.github.io/blog/markdown-math/</link>
+      <pubDate>Sun, 04 Nov 2018 04:23:38 +0530</pubDate>
+      
+      <guid>https://Shreyas94.github.io/blog/markdown-math/</guid>
+      <description>I am back after a ten month hiatus. While I am keen on continuing my Dynamic Complexity series, in this two post series, I wish to write on a topic of broader interest to people working in mathematical disciplines: The use of markdown for typesetting. This subject is fairly large so I split it into two parts. In part-1, I do not go into math and diagrams, so readers who are expecting math would be disappointed. I&amp;rsquo;ve got you covered in part 2. I think, and I hope you will agree, that it is only fair that I give an introduction to markdown to those who may not have heard of it.
+To those who are new to markdown, I welcome you to a beautiful and simple language that will save you tonnes of time, if you invest a very small chunk of it learning markdown. In particular, if you are a student or professor who has to typeset mathematical lecture notes, problem sheets, or even blogs, you will find this useful. Many mathematicians, physicists, and computer scientists do use it in their blogs. This post is for those who haven&amp;rsquo;t discovered markdown yet.
+Why Markdown? $\LaTeX$ is an indispensable tool in the mathematical sciences for writing documents containing mathematical notation.</description>
+    </item>
     
     <item>
       <title>Contact</title>
