@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shreyas</title>
-    <link>https://Shreyas94.github.io/</link>
+    <link>https://Shreyas4991.github.io/</link>
     <description>Recent content on Shreyas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-Hans</language>
     <lastBuildDate>Sun, 04 Nov 2018 04:23:38 +0530</lastBuildDate>
     
-	<atom:link href="https://Shreyas94.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Shreyas4991.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Markdown for Math - Part 1</title>
-      <link>https://Shreyas94.github.io/blog/markdown-math/</link>
+      <link>https://Shreyas4991.github.io/blog/markdown-math/</link>
       <pubDate>Sun, 04 Nov 2018 04:23:38 +0530</pubDate>
       
-      <guid>https://Shreyas94.github.io/blog/markdown-math/</guid>
+      <guid>https://Shreyas4991.github.io/blog/markdown-math/</guid>
       <description>I am back after a ten month hiatus. While I am keen on continuing my Dynamic Complexity series, in this two post series, I wish to write on a topic of broader interest to people working in mathematical disciplines: The use of markdown for typesetting. This subject is fairly large so I split it into two parts. In part-1, I do not go into math and diagrams, so readers who are expecting math would be disappointed. I&amp;rsquo;ve got you covered in part 2. I think, and I hope you will agree, that it is only fair that I give an introduction to markdown to those who may not have heard of it.
 To those who are new to markdown, I welcome you to a beautiful and simple language that will save you tonnes of time, if you invest a very small chunk of it learning markdown. In particular, if you are a student or professor who has to typeset mathematical lecture notes, problem sheets, or even blogs, you will find this useful. Many mathematicians, physicists, and computer scientists do use it in their blogs. This post is for those who haven&amp;rsquo;t discovered markdown yet.
 Why Markdown? $\LaTeX$ is an indispensable tool in the mathematical sciences for writing documents containing mathematical notation.</description>
@@ -24,19 +24,19 @@ Why Markdown? $\LaTeX$ is an indispensable tool in the mathematical sciences for
     
     <item>
       <title>Contact</title>
-      <link>https://Shreyas94.github.io/contact/</link>
+      <link>https://Shreyas4991.github.io/contact/</link>
       <pubDate>Sun, 04 Nov 2018 01:37:32 +0530</pubDate>
       
-      <guid>https://Shreyas94.github.io/contact/</guid>
+      <guid>https://Shreyas4991.github.io/contact/</guid>
       <description>I&amp;rsquo;ll add my contact details here sometime in the future.</description>
     </item>
     
     <item>
       <title>About Me</title>
-      <link>https://Shreyas94.github.io/about-me/</link>
+      <link>https://Shreyas4991.github.io/about-me/</link>
       <pubDate>Sat, 03 Nov 2018 03:10:14 +0530</pubDate>
       
-      <guid>https://Shreyas94.github.io/about-me/</guid>
+      <guid>https://Shreyas4991.github.io/about-me/</guid>
       <description>I&amp;rsquo;m a wannabe theoretical computer scientist who occasionally dabbles in non-theoretical aspects of CS.
 I graduated from NIT-Trichy in Computer Science back in 2016, and from Oxford in 2017. My bachelor&amp;rsquo;s thesis focussed on applying cube attacks and distinguishers to Trivium. In my master&amp;rsquo;s thesis, I worked on Machine Teaching, a paradigm of learning where the focus is on a teacher choosing an appropriate set of labelled data points to teach a concept to a learner.
 I am also learning to play the violin in the Carnatic style. If you haven&amp;rsquo;t heard about this genre before, here&amp;rsquo;s a wonderful instrumental rendition of a classic song to get you started: Manavyalakinchara</description>
@@ -44,10 +44,10 @@ I am also learning to play the violin in the Carnatic style. If you haven&amp;rs
     
     <item>
       <title>A Gentle Introduction to Dynamic Complexity</title>
-      <link>https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</link>
+      <link>https://Shreyas4991.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Shreyas94.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</guid>
+      <guid>https://Shreyas4991.github.io/blog/2017-12-18-a-gentle-introduction-to-dynamic-complexity/</guid>
       <description>$$ \newcommand{\ang}[1]{\langle #1\rangle} \newcommand{\brackets}[1]{\left( #1\right)} $$
 This post is an introductory post and is Part 1 of an n-Part series on Dynamic Complexity, where n is unknown.
 Since October this year, I have been working with Prof. Samir Datta on the topic of Dynamic Complexity. We are working on several problems in this subject, which I would like to write about sometime in the near future. So I guess it is only fair that I give an overview of the subject. It would be useful but not necessary to have a grasp of basic logic, circuit complexity and descriptive complexity. I&amp;rsquo;ll keep this as intuitive and simple as I can. At the same time I will also loosely state the relevant formal definitions. The presentation is geared towards an audience of CS undergraduates. Others who wish to get a quick introduction might also find this useful. I&amp;rsquo;ll revisit the basic definitions in logic and descriptive complexity for the sake of clarity. The presentation is not suitable for someone who seeks a rigorous formal introduction. Such introductions have been written in several papers and dissertations, in particular Thomas Zeume&amp;rsquo;s thesis on Small Dynamic Complexity Classes. I find it pointless to rehash them.</description>
@@ -55,10 +55,10 @@ Since October this year, I have been working with Prof. Samir Datta on the topic
     
     <item>
       <title>Welcome to the Blog</title>
-      <link>https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/</link>
+      <link>https://Shreyas4991.github.io/blog/2017-12-17-welcome-to-the-blog/</link>
       <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Shreyas94.github.io/blog/2017-12-17-welcome-to-the-blog/</guid>
+      <guid>https://Shreyas4991.github.io/blog/2017-12-17-welcome-to-the-blog/</guid>
       <description>I welcome you to this blog. This is going to be an extremely short post. I have been trying to start a blog for a while and have finally found the time to set it up. Through this blog I hope to share interesting ideas, algorithms, problems and proofs that I come across in CS theory. I am also using this blog as an exercise to constantly improve my ability to communicate complex ideas lucidly. I hope you enjoy it</description>
     </item>
     
