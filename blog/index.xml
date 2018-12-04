@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Markdown for Math - Part 2</title>
+      <link>https://Shreyas4991.github.io/blog/markdown-math-2/</link>
+      <pubDate>Tue, 06 Nov 2018 23:55:53 +0530</pubDate>
+      
+      <guid>https://Shreyas4991.github.io/blog/markdown-math-2/</guid>
+      <description>This post is a continuation of Part 1. If you haven&amp;rsquo;t read it I would encourage you to skim through the first paragraph.
+Now that we have dispensed with the initial hurdles of setting up our tools and getting a hang of markdown syntax, it&amp;rsquo;s time to discuss how markdown can prove useful to academics. While I write as someone from a mathematical background, I am sure people from other areas will find this equally useful. I have structured this article as a sequence of sections each devoted to one particular feature that most markdown flavours offer, and I find useful. In particular, both the editors I have described in Part 1 support these features. I also mention some more niche features that certain flavours of markdown offer. I finally discuss ways to publish the content online using static site generators. This can help you publish your content such as lecture notes, documentation, or blogs on the web with very little effort on your part.
+Tables The pain of typesetting tables would be familiar to anybody using the table environment in latex. The endless commands, the tabular environment, the necessity to constantly plug in &amp;amp;&amp;rsquo;s to separate cells in a row and so on.</description>
+    </item>
+    
+    <item>
       <title>Markdown for Math - Part 1</title>
       <link>https://Shreyas4991.github.io/blog/markdown-math/</link>
       <pubDate>Sun, 04 Nov 2018 04:23:38 +0530</pubDate>

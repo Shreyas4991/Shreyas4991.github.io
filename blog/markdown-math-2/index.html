@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zn-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Shreyas">
+  <meta name="description" content="This post is a continuation of Part 1. If you haven&rsquo;t read it I would encourage you to skim through the first paragraph.
+Now that we have dispensed with the initial hurdles of setting up our tools and getting a hang of markdown syntax, it&rsquo;s time to discuss how markdown can prove useful to academics. While I write as someone from a mathematical background, I am sure people from other areas will find this equally useful. I have structured this article as a sequence of sections each devoted to one particular feature that most markdown flavours offer, and I find useful. In particular, both the editors I have described in Part 1 support these features. I also mention some more niche features that certain flavours of markdown offer. I finally discuss ways to publish the content online using static site generators. This can help you publish your content such as lecture notes, documentation, or blogs on the web with very little effort on your part.
+Tables The pain of typesetting tables would be familiar to anybody using the table environment in latex. The endless commands, the tabular environment, the necessity to constantly plug in &amp;&rsquo;s to separate cells in a row and so on.">
+  
+  <meta property="og:title" content="Markdown for Math - Part 2" />
+<meta property="og:description" content="This post is a continuation of Part 1. If you haven&rsquo;t read it I would encourage you to skim through the first paragraph.
+Now that we have dispensed with the initial hurdles of setting up our tools and getting a hang of markdown syntax, it&rsquo;s time to discuss how markdown can prove useful to academics. While I write as someone from a mathematical background, I am sure people from other areas will find this equally useful. I have structured this article as a sequence of sections each devoted to one particular feature that most markdown flavours offer, and I find useful. In particular, both the editors I have described in Part 1 support these features. I also mention some more niche features that certain flavours of markdown offer. I finally discuss ways to publish the content online using static site generators. This can help you publish your content such as lecture notes, documentation, or blogs on the web with very little effort on your part.
+Tables The pain of typesetting tables would be familiar to anybody using the table environment in latex. The endless commands, the tabular environment, the necessity to constantly plug in &amp;&rsquo;s to separate cells in a row and so on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Shreyas4991.github.io/blog/markdown-math-2/" /><meta property="article:published_time" content="2018-11-06T23:55:53&#43;05:30"/>
+<meta property="article:modified_time" content="2018-11-06T23:55:53&#43;05:30"/>
+
+
+  <title>
+  
+       Markdown for Math - Part 2 | Shreyas 
+  
+  </title>
+
+  <link rel="canonical" href="https://Shreyas4991.github.io/blog/markdown-math-2/">
+
+  
+  
+
+  
+  <link href="https://Shreyas4991.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://Shreyas4991.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://Shreyas4991.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://Shreyas4991.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://Shreyas4991.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://Shreyas4991.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://Shreyas4991.github.io/img/profile.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://Shreyas4991.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://Shreyas4991.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://Shreyas4991.github.io">
+          
+        <img class="avatar" src="https://Shreyas4991.github.io" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Shreyas</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://Shreyas4991.github.io">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas4991.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas4991.github.io/about-me/" >About  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://Shreyas4991.github.io/contact/" >Contact  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://Shreyas4991.github.io/img/header-slides/mine_20170810_191443.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://Shreyas4991.github.io/img/header-slides//mine_20170810_193018.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://Shreyas4991.github.io">
+          
+            <img class="pull-right avatar avatar-md" src="https://Shreyas4991.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://Shreyas4991.github.io">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Shreyas</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/Shreyas94" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+
+            
+    
+            
+    
+        
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="container pr-5">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+    
+  </ul>
+
+  <div class="px-4 post-heading">Markdown for Math - Part 2</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Nov 6, 2018</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>9 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>This post is a continuation of <a href="blog/markdown-math/">Part 1</a>. If you haven&rsquo;t read it I would encourage you to skim through the first paragraph.</p>
+
+<p>Now that we have dispensed with the initial hurdles of setting up our tools and getting a hang of markdown syntax, it&rsquo;s time to discuss how markdown can prove useful to academics. While I write as someone from a mathematical background, I am sure people from other areas will find this equally useful. I have structured this article as a sequence of sections each devoted to one particular feature that most markdown flavours offer, and I find useful. In particular, both the editors I have described in Part 1 support these features. I also mention some more niche features that certain flavours of markdown offer. I finally discuss ways to publish the content online using static site generators. This can help you publish your content such as lecture notes, documentation, or blogs on the web with very little effort on your part.</p>
+
+<h2 id="tables">Tables</h2>
+
+<p>The pain of typesetting tables would be familiar to anybody using the <code>table</code> environment in latex. The endless commands, the tabular environment, the necessity to constantly plug in &amp;&rsquo;s to separate cells in a row and so on. And if you miss and &amp;, finding it can be a big headache. In many situations, we do not need all the paraphernalia that latex&rsquo;s table environment offers us. A simple table is preferable. For these situations, markdown has a remarkably intuitive solution. See for yourself. The following is the source for a table.</p>
+
+<pre><code>| Name | Fruit/Vegetable|
+|------|----------------|
+| Potato | Vegetable|
+| Tomato | Vegetable|
+| Peach | Fruit|
+| Apple | Fruit|
+| Okra | Vegetable|
+| Mango | Fruit|
+</code></pre>
+
+<p>This is how it is rendered.</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Fruit/Vegetable</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Potato</td>
+<td>Vegetable</td>
+</tr>
+
+<tr>
+<td>Tomato</td>
+<td>Vegetable</td>
+</tr>
+
+<tr>
+<td>Peach</td>
+<td>Fruit</td>
+</tr>
+
+<tr>
+<td>Apple</td>
+<td>Fruit</td>
+</tr>
+
+<tr>
+<td>Okra</td>
+<td>Vegetable</td>
+</tr>
+
+<tr>
+<td>Mango</td>
+<td>Fruit</td>
+</tr>
+</tbody>
+</table>
+
+<p>To get into the details, tables always start in a new paragraph (skip a line, hit <code>Enter</code> twice after your last paragraph). The header row is essential. It determines the column structure of your table. Markdown uses the horizontal bar <code>|</code> for demarcating columns. An initial and final horizontal bar <code>|</code> is necessary. After the header row, it is essential to have another row, whose column structure matches the header row and whose entries are all three or more hyphens. Subsequent rows are used for entering the data tuples and the pattern of the header row is repeated for demarcating columns. It is important that the column structure of header match the column structure of all subsequent rows of the table.</p>
+
+<h2 id="the-math-itself">The Math Itself</h2>
+
+<p>Many extended flavours of markdown offer the ability to include mathematical formulae in latex syntax within markdown documents. Let&rsquo;s first look at how math itself is inserted into a markdown document before we discuss some important issues regarding support for various latex commands and environments.</p>
+
+<p>Like latex there are two kinds of math renderings supported.</p>
+
+<ul>
+<li><strong>Inline Math</strong>: This is math that appears as part of a line or paragraph of text. You can use almost every latex math command within the inline math delimiters <code>$..$</code>. For example <code>$\tan^2(x) = \frac{\sin^2(x)}{\cos^2(x)}$</code> yields $\tan(x) = \frac{\sin(x)}{\cos(x)}$. If you make latex errors such as this: <code>$\frac{1}$</code>, you may get error messages or simply an image of the text like this $\frac{1}$, depending on the markdown flavour.</li>
+<li><strong>Display math</strong>: This is math that appears in it&rsquo;s own line and centered. Most markdown flavours support the <code>$$...$$</code> delimiters by default.</li>
+</ul>
+
+<p>When using math in markdown it is important to keep the following things in mind:</p>
+
+<ul>
+<li>When using the <code>_</code> character for subscripting it is advisable to escape it, i.e. type it as <code>\_</code>. This is because markdown interprets <code>_</code> as the beginning of italicised text, and the subscript notation might go missing from the rendered math. Part of the problem lies with the absence of standardisation of math in markdown.</li>
+<li>Always start the dislay math mode after a blank line, as you would to start a paragraph.</li>
+<li>The display math mode supports many common text mode environments such as <code>align</code> and <code>equation</code> which are used for inserting math. These environments cannot be inserted outside the display mode math delimiters. Some markdown renderers also support the equivalent math mode environments such as <code>alignedAt</code>. If you are publishing web pages, check the notes below on differences between renderers.</li>
+<li>Equation numbering is an optional extra that some markdown flavours offer. <em>Typora</em> is one such editor. The same goes for theorem numbering. In practice, I recommend against relying on these numbering schemes. If your document relies on precise equation numbering then markdown is probably not appropriate for your task. I have used it for intense mathematical derivations, but these were a part of lecture notes and notes for exams, not parts of a thesis or a paper.</li>
+<li>Any latex command must be surrounded by math mode delimiters. Commands for macro definitions such as <code>\newcommand</code> and <code>\renewcommand</code>, and  environment definitions such as <code>\newtheorem</code> must always be inside the display math mode delimiters. Not all markdown flavours support these commands, but my vscode editor and typora have some support for them.</li>
+<li>Debugging math can be a little hard so divide your math into smaller chunks, It is okay to have multiple separately delimited lines of math.</li>
+</ul>
+
+<p>But all these caveats aside, it is usually a pleasure to typeset markdown in mathematics. At this stage it is important to mention something about using markdown for webpages. When markdown flavours convert markdown files to html files, the mathematical parts are inserted in the TeX format. Javascript libraries, typically <a href="http://docs.mathjax.org/en/latest/start.html">MathJax</a> or <a href="https://katex.org/">KaTeX</a> are included in the html files which then render the math output. MathJax has been the mainstay of rendering math on the web for some time although KaTeX is beginning to catch up thanks to its faster rendering. That said, there are differences in the commands and environments that are supported by these libraries. For instance KaTeX only supports the <code>alignedAt</code> environment for math, whereas MathJaX is more liberal in its support for text and math environments. The choice of libraries is typically made for you by your editor or website generator. If you have the patience to tinker with configuration files and source files, you can make changes to the default options. I will not go down that rabbit hole in this post. For this blog, I replaced the KaTeX library with MathJax, specifically for <code>\newcommand</code> support. Typically, this requires inserting your own script tag for the mathjax or katex source. I personally prefer MathJax for its much broader support for latex commands, even though KaTeX appears to be much faster at rendering.</p>
+
+<h2 id="source-code">Source Code</h2>
+
+<p>While this feature is a part of most markdown flavours including github&rsquo;s, I believe it merits its own brief section. Source code can be rendered in inline and display modes just like math. To render source code inline we use back-ticks <code>`...`</code> as delimiters. On standard US English keyboards, this key is present under the <code>Esc</code> key along with the <code>~</code> symbol. For multiline source code in display mode, the code is enclosed between three back-ticks as delimiters, exactly like the <code>$$</code> delimiters. See this example below</p>
+
+<pre><code>    ```
+        Source
+    ```
+</code></pre>
+
+<p>This will be rendered as</p>
+
+<pre><code>    Source
+</code></pre>
+
+<p>Some markdown flavours and editors also offer syntax highlighting for a limited set of languages. In such cases, the language of the source code is specified after the opening delimiter as shown below</p>
+
+<pre><code>    ```python
+        def fn():
+            print &quot;Hello&quot;
+    ```
+</code></pre>
+
+<p>This is rendered as:</p>
+
+<pre><code class="language-python">    def fn():
+        print &quot;hello&quot;
+</code></pre>
+
+<p>Enclosing text in backticks renders the text exactly as it is with no processing. So how does one include backticks within such text? If the text to be enclosed is inline, then it suffices to enclose it in double backticks. For display mode, indenting with four spaces is necessary.</p>
+
+<h2 id="other-extensions">Other extensions</h2>
+
+<p>Various markdown flavours and editors offer further extensions. Here&rsquo;s a brief list of some of them</p>
+
+<ul>
+<li>Both Typora and VSCode (with extensions), support <a href="https://mermaidjs.github.io/">mermaid</a>. Mermaid lets you easily insert directed graphs (networks), flowcharts, sequence diagrams, and gantt charts.</li>
+<li>Bibliography a la bibtex, although it requires a lot of work to get it right.</li>
+<li>Checkboxes  which can come in handy on web pages which contain checklists</li>
+<li>Definition Lists</li>
+<li>Line charts, bar charts, histograms, polar charts, etc with the javascript library <a href="http://www.chartjs.org/">chart.js</a></li>
+<li>footnotes
+<br /></li>
+</ul>
+
+<p>These additional features have limited support. Some of them may require using specific markdown editors or alternatively, some extra tinkering with source files. They are not universally available in all markdown flavours, and not all editors support them. Therefore I&rsquo;ll leave it to the reader to explore these features. The <a href="https://tylingsoft.com/markdown-plus/">markdown plus</a> flavour supports most of these features.</p>
+
+<p>Data scientists may already be familiar with markdown, since it is an integral part of jupyter notebooks. Others may find <a href="https://rmarkdown.rstudio.com/">R markdown</a> a very useful tool for presenting their work in all sorts of formats using markdown.</p>
+
+<h2 id="publishing-online">Publishing Online</h2>
+
+<p>While markdown processors, especially pandoc, offer the ability to render your markdown into dozens of different file formats, markdown is particularly useful for blogging on the web. Standard blogging platforms like medium or wordpress offer very little if any support for typesetting math. In wordpress one has to seek out the right plugins and be careful to avoid wordpress or plugin specific shortcodes. Static site generators are the best bet for such work. They are extensively configurable and can be hosted easily, either on your own server or on a free service like Github Pages. <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://gohugo.io/">Hugo</a> are two very popular static site generators. <a href="https://docs.readthedocs.io/en/latest/intro/getting-started-with-sphinx.html">Sphinx with readthedocs</a> is a powerful combination for lecture notes. I write this blog with Hugo. These generators allow you to write your article and generate sites according to the theme you pick. Their documentation is accessible to someone who has basic familiarity with text editors and markdown and can copy and paste commands on their shell. Typically they compile your markdown pages and paste the output in a folder labelled <code>public</code>, which contains the static site you need to upload onto your server&rsquo;s public folder. I would highly recommend exploring these tools if you are considering blogging.</p>
+
+<h2 id="some-final-thoughts">Some final thoughts</h2>
+
+<p>I started this two post series on markdown with the limited goal of introducing markdown for people from the mathematical sciences. The title of these posts <em>Markdown for Math</em> reflects this initial goal. However it looks like I have deviated significantly from this original goal, in an effort to highlight what markdown has to offer to academics. Nevertheless I hope you find this long rambling two part series useful. I apologise for any typographical errors. I started writing this post over a month ago, and have had little time to complete it. I&rsquo;ll be glad to take suggestions and offer clarifications.</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://Shreyas4991.github.io/blog/markdown-math/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>Markdown for Math - Part 1</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/Shreyas94 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2017 - 2018 &copy Shreyas; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://Shreyas4991.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://Shreyas4991.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
